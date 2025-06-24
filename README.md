@@ -36,12 +36,35 @@ YCM_AI/
 npm install
 ```
 
-### 2. 啟動 Metro Bundler
+### 2. 套件修補
+在安裝完依賴後，需要對以下套件進行手動修補：
+
+#### @react-native-voice/voice
+移除 `node_modules/@react-native-voice/voice/android/build.gradle` 第65行：
+```gradle
+// implementation "com.android.support:appcompat-v7:${supportVersion}"
+```
+
+#### react-native-tts
+移除 `node_modules/react-native-tts/android/build.gradle` 中的 `buildscript` 區塊：
+```gradle
+// buildscript {
+//     repositories {
+//         jcenter()
+//     }
+// 
+//     dependencies {
+//         classpath 'com.android.tools.build:gradle:1.3.1'
+//     }
+// }
+```
+
+### 3. 啟動 Metro Bundler
 ```bash
 npm start
 ```
 
-### 3. 運行應用程式
+### 4. 運行應用程式
 
 #### Android
 ```bash
